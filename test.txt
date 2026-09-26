@@ -1,0 +1,2 @@
+# Projeto Apple - Mini Sistema de Gerenciamento
+Arquivos do projeto organizados em backend/ e frontend/.
