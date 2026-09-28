@@ -138,7 +138,8 @@ projeto-apple/
 ---
 
 ## Deploy na Vercel
-- Arquivo `backend/vercel.json` configurado com reescrita para o ponto de entrada serverless `backend/api/index.js`.
+- Arquivo `backend/vercel.json` e arquivo raiz `vercel.json` configurados com reescrita para o ponto de entrada serverless `backend/api/index.js` e suporte à pasta `public/`.
+- O site visual (`index.html`) agora é entregue diretamente na rota raiz (`/`) da Vercel e localmente, enquanto as rotas de dados operam sob `/api` e `/api/aparelhos`.
 - Conexão MongoDB com pool e cache implementados para evitar abertura excessiva de conexões por requisição.
 - Instruções detalhadas de publicação documentadas no `README.md`.
 

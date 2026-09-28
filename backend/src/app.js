@@ -40,8 +40,28 @@ const ensureDbConnection = async (req, res, next) => {
 
 app.use(ensureDbConnection);
 
-// Rota raiz com orientações de uso
+const path = require('path');
+const fs = require('fs');
+
+// Configuração de pastas estáticas (para servir o frontend na mesma porta/URL da Vercel)
+const publicPath = path.join(__dirname, '../public');
+const frontendPath = path.join(__dirname, '../../frontend');
+
+app.use(express.static(publicPath));
+app.use(express.static(frontendPath));
+
+// Rota raiz: se o frontend existir, serve o index.html visual; se for requisitado JSON, entrega os endpoints
 app.get('/', (req, res) => {
+  const indexPublic = path.join(publicPath, 'index.html');
+  const indexFrontend = path.join(frontendPath, 'index.html');
+
+  if (fs.existsSync(indexPublic)) {
+    return res.sendFile(indexPublic);
+  }
+  if (fs.existsSync(indexFrontend)) {
+    return res.sendFile(indexFrontend);
+  }
+
   res.status(200).json({
     sucesso: true,
     sistema: 'Mini Sistema — Gerenciamento de Aparelhos Apple',
