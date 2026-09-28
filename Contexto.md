@@ -44,6 +44,9 @@ projeto-apple/
 │   ├── package.json                  # Manifesto de dependências e scripts do backend
 │   └── vercel.json                   # Regras de reescrita para Serverless na Vercel
 │
+├── api/
+│   └── index.js                  # Ponto de entrada Serverless da Vercel na raiz do projeto
+│
 ├── frontend/
 │   ├── css/
 │   │   └── style.css                 # Folha de estilos moderna, limpa e responsiva (design Apple)
@@ -51,6 +54,8 @@ projeto-apple/
 │   │   └── script.js                 # Centralização de API_URL, chamadas fetch, renderização e modais
 │   └── index.html                    # Interface principal do usuário
 │
+├── package.json                      # Manifesto de dependências na raiz para build na Vercel
+├── vercel.json                       # Regras de reescrita para Vercel Serverless Function e Frontend
 ├── Roadmap.md                        # Rastreamento de progresso e tarefas do projeto
 ├── Contexto.md                       # Resumo arquitetural, estado atual e documentação
 ├── api.md                            # Documentação técnica completa da API com exemplos
